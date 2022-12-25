@@ -1,5 +1,4 @@
 //! src/configuration.rs
-use actix_web::web::Data;
 use config;
 
 #[derive(serde::Deserialize)]
