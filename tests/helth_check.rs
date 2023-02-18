@@ -1,20 +1,17 @@
 //! tests/health_check.rs
-use std::net::TcpListener;
-use zero2prod::startup::run;
-use zero2prod::configuration::{DatabaseSettings, get_configuration};
 use sqlx::{Connection, Executor, PgConnection, PgPool};
+use std::net::TcpListener;
 use uuid::Uuid;
+use zero2prod::configuration::{get_configuration, DatabaseSettings};
+use zero2prod::startup::run;
 
 pub struct TestApp {
     pub address: String,
     pub db_pool: PgPool,
 }
 
-
 pub async fn configure_database(config: &DatabaseSettings) -> PgPool {
-    let mut connection = PgConnection::connect(
-        &config.connection_string_without_db()
-    )
+    let mut connection = PgConnection::connect(&config.connection_string_without_db())
         .await
         .expect("Failed to connect to Postgres");
     connection

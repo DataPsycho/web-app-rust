@@ -17,6 +17,9 @@ path = "src/main.rs"
 name = "zero2prod"
 
 [dependencies]
+tracing = { version = "0.1", features = ["log"] }
+env_logger = "0.9"
+log = "0.4"
 uuid = { version = "1", features = ["v4"] }
 chrono = { version = "0.4.22", default-features = false, features = ["clock"] }
 config = "0.13"
