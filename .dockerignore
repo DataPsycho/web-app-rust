@@ -1,0 +1,7 @@
+target
+.gitignore
+Makefile
+README.md
+.idea
+.github
+tests
